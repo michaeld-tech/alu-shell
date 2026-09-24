@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 -c 'W="water"\nS="stir."\nO="bestchol"\nf=lambda s,b:sum(b.index(c)*len(b)**i for i,c in enumerate(s[::-1]))\nn=f("'"$WATER"'",W)+f("'"$STIR"'",S)\nprint((lambda n:"".join(O[(n//8**i)%8] for i in range(20) if n//8**i))(n)[::-1])'
+python3 -c 'exec("import os\nW=\"water\"\nS=\"stir.\"\nO=\"bestchol\"\ndef f(s,b):\n n=0\n for c in s:n=n*len(b)+b.index(c)\n return n\nn=f(os.environ[\"WATER\"],W)+f(os.environ[\"STIR\"],S)\nr=\"\"\nwhile n:r=O[n%len(O)]+r;n//=len(O)\nprint(r)")'
