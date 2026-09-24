@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 -c 'W="water";S="stir.";O="bestchol";f=lambda s,b:sum(b.index(c)*len(b)**i for i,c in enumerate(s[::-1]));n=f("'"$WATER"'",W)+f("'"$STIR"'",S);r="";exec("while n:r=O[n%8]+r;n//=8");print(r)'
+python3 -c 'W="water"\nS="stir."\nO="bestchol"\nf=lambda s,b:sum(b.index(c)*len(b)**i for i,c in enumerate(s[::-1]))\nn=f("'"$WATER"'",W)+f("'"$STIR"'",S)\nprint((lambda n:"".join(O[(n//8**i)%8] for i in range(20) if n//8**i))(n)[::-1])'
